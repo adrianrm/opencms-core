@@ -20,7 +20,7 @@
 		  <dependency groupId="commons-collections" artifactId="commons-collections" version="3.2.1"/>
 		  <dependency groupId="commons-dbcp" artifactId="commons-dbcp" version="1.3"/>
 		  <dependency groupId="commons-digester" artifactId="commons-digester" version="1.8"/>
-		  <dependency groupId="commons-email" artifactId="commons-email" version="1.2"/>
+		  <dependency groupId="org.apache.commons" artifactId="commons-email" version="1.2"/>
 		  <dependency groupId="commons-fileupload" artifactId="commons-fileupload" version="1.2.2"/>
 		  <dependency groupId="commons-httpclient" artifactId="commons-httpclient" version="3.1"/>
 		  <dependency groupId="commons-io" artifactId="commons-io" version="1.4"/>
@@ -37,7 +37,7 @@
 		  	<exclusion groupId="org.apache.openjpa" artifactId="openjpa" />		  	
 		  </dependency>
 		  <dependency groupId="org.apache.pdfbox" artifactId="pdfbox" version="1.5.0">
-		  	<exclusion groupId="org.apache.jempbox" artifactId="jempbox" />
+		  	<exclusion groupId="org.apache.pdfbox" artifactId="jempbox" />
 		  </dependency>
 		  <dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jms_1.1_spec" version="1.1.1"/>
 		  <dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jpa_2.0_spec" version="1.1"/>
@@ -95,7 +95,7 @@
 		  <dependency groupId="xml-apis" artifactId="xml-apis" version="2.9.1"/>
 		  <dependency groupId="javax.servlet" artifactId="jstl" version="1.1.2"/>
 		</artifact:pom>
-		<artifact:dependencies fileSetId="dependency.runtime.fileset" pomRefId="runtimePom" useScope="runtime"/>
+		<artifact:dependencies fileSetId="dependency.runtime.fileset" pomRefId="runtimePom" useScope="runtime" />
  
 		<copy todir="libs-maven/runtime">
   			<fileset refid="dependency.runtime.fileset" />
