@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="OpenCms dependencies" default="copy-deps" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<path id="maven-ant-tasks.classpath" path="libbuild/maven-ant-tasks-2.1.3.jar" />
+	<typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+	           uri="antlib:org.apache.maven.artifact.ant"
+	           classpathref="maven-ant-tasks.classpath" />
+
+	<target name="copy-deps">
+		<mkdir dir="libs-maven/compile"/>
+		<mkdir dir="libs-maven/runtime"/>
+		
+		<artifact:pom id="runtimePom" groupId="arm.opencms" artifactId="opencms-runtime-libs" version="${version.number}">
+			
+		  <dependency groupId="org.bouncycastle" artifactId="bcprov-jdk15" version="1.46"/>
+		  <dependency groupId="javax.activation" artifactId="activation" version="1.1.1"/>
+  		  <dependency groupId="commons-beanutils" artifactId="commons-beanutils" version="1.8.0"/>
+		  <dependency groupId="commons-codec" artifactId="commons-codec" version="1.3"/>
+		  <dependency groupId="commons-collections" artifactId="commons-collections" version="3.2.1"/>
+		  <dependency groupId="commons-dbcp" artifactId="commons-dbcp" version="1.3"/>
+		  <dependency groupId="commons-digester" artifactId="commons-digester" version="1.8"/>
+		  <dependency groupId="commons-email" artifactId="commons-email" version="1.2"/>
+		  <dependency groupId="commons-fileupload" artifactId="commons-fileupload" version="1.2.2"/>
+		  <dependency groupId="commons-httpclient" artifactId="commons-httpclient" version="3.1"/>
+		  <dependency groupId="commons-io" artifactId="commons-io" version="1.4"/>
+		  <dependency groupId="commons-lang" artifactId="commons-lang" version="2.4"/>
+		  <dependency groupId="commons-logging" artifactId="commons-logging" version="1.1.1"/>
+		  <dependency groupId="commons-pool" artifactId="commons-pool" version="1.5.5"/>
+		  
+		  <dependency groupId="dom4j" artifactId="dom4j" version="1.6.1">
+		  	<exclusion groupId="xml-apis" artifactId="xml-apis"/>
+		  </dependency>
+		  <dependency groupId="net.sf.ehcache" artifactId="ehcache-core" version="2.3.2"/>
+		  <dependency groupId="net.sf.ehcache" artifactId="ehcache-openjpa" version="0.2.0" >
+		    <exclusion groupId="org.apache.geronimo.specs" artifactId="geronimo-jpa_3.0_spec" />
+		  	<exclusion groupId="org.apache.openjpa" artifactId="openjpa" />		  	
+		  </dependency>
+		  <dependency groupId="org.apache.pdfbox" artifactId="pdfbox" version="1.5.0">
+		  	<exclusion groupId="org.apache.jempbox" artifactId="jempbox" />
+		  </dependency>
+		  <dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jms_1.1_spec" version="1.1.1"/>
+		  <dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jpa_2.0_spec" version="1.1"/>
+		  <dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jta_1.1_spec" version="1.1.1"/>
+		  <dependency groupId="com.google.guava" artifactId="guava" version="r08"/>
+		  <!-- dependency groupId="com.google.guava" artifactId="guava" version="r08" classifier="gwt"/ -->
+			<dependency groupId="org.apache.openjpa" artifactId="openjpa" version="2.1.0">
+				<exclusion groupId="junit" artifactId="junit" />
+			</dependency>
+		  
+		  <dependency groupId="org.htmlparser" artifactId="htmlparser" version="1.6"/>
+		  <dependency groupId="oro" artifactId="oro" version="2.0.8"/>
+		  <dependency groupId="jaxen" artifactId="jaxen" version="1.1.1" >
+		    <exclusion groupId="jdom" artifactId="jdom"/>
+		    <exclusion groupId="xerces" artifactId="xercesImpl"/>
+		    <exclusion groupId="xom" artifactId="xom"/>
+		  	<exclusion groupId="xml-apis" artifactId="xml-apis"/>
+		  </dependency>
+		  <dependency groupId="org.hibernate" artifactId="jtidy" version="r8-20060801"/>
+		  <dependency groupId="org.safehaus.jug" artifactId="jug" version="2.0.0" classifier="lgpl"/>
+		  <dependency groupId="log4j" artifactId="log4j" version="1.2.15">
+		  	<exclusion groupId="com.sun.jmx" artifactId="jmxri"/>
+		  	<exclusion groupId="com.sun.jdmk" artifactId="jmxtools"/>
+		  	<exclusion groupId="javax.mail" artifactId="mail"/>
+		  	<exclusion groupId="javax.jms" artifactId="jms"/>
+		  </dependency>
+		  <dependency groupId="org.apache.lucene" artifactId="lucene-analyzers" version="3.1.0"/>
+		  <dependency groupId="org.apache.lucene" artifactId="lucene-queries" version="3.1.0">
+		  	<exclusion groupId="jakarta-regexp" artifactId="jakarta-regexp"/>
+		  </dependency>
+		  <dependency groupId="org.apache.lucene" artifactId="lucene-highlighter" version="3.1.0"/>
+		  <dependency groupId="org.apache.lucene" artifactId="lucene-memory" version="3.1.0"/>
+			
+		  <dependency groupId="javax.mail" artifactId="mail" version="1.4.1"/>
+		  <dependency groupId="org.apache.tika" artifactId="tika-parsers" version="0.9">
+			<exclusion groupId="org.apache.james" artifactId="apache-mime4j"/>
+		  	<exclusion groupId="asm" artifactId="asm"/>
+		  	<exclusion groupId="org.bouncycastle" artifactId="bcmail-jdk15"/>
+		  	<exclusion groupId="de.l3s.boilerpipe" artifactId="boilerpipe"/>
+		  	<exclusion groupId="org.apache.commons" artifactId="commons-compress"/>
+		  	<exclusion groupId="org.apache.geronimo.specs" artifactId="geronimo-stax-api_1.0_spec"/>
+		  	<exclusion groupId="org.apache.geronimo.specs" artifactId="geronimo-stax-api_1.0_spec"/>
+		  	<exclusion groupId="rome" artifactId="rome"/>
+		  	<exclusion groupId="com.drewnoakes" artifactId="metadata-extractor"/>
+		  	<exclusion groupId="edu.ucar" artifactId="netcdf"/>
+		  	<exclusion groupId="org.ccil.cowan.tagsoup" artifactId="tagsoup"/>
+		  </dependency>
+		  <dependency groupId="quartz" artifactId="quartz" version="1.5.2"/>
+		  <dependency groupId="org.slf4j" artifactId="slf4j-jdk14" version="1.5.11"/>
+		  <dependency groupId="taglibs" artifactId="standard" version="1.1.2"/>
+			
+		  <dependency groupId="xerces" artifactId="xercesImpl" version="2.9.1">
+		  	<exclusion groupId="xml-apis" artifactId="xml-apis"/>
+		  </dependency>
+		  <dependency groupId="xml-apis" artifactId="xml-apis" version="2.9.1"/>
+		  <dependency groupId="javax.servlet" artifactId="jstl" version="1.1.2"/>
+		</artifact:pom>
+		<artifact:dependencies fileSetId="dependency.runtime.fileset" pomRefId="runtimePom" useScope="runtime"/>
+ 
+		<copy todir="libs-maven/runtime">
+  			<fileset refid="dependency.runtime.fileset" />
+			<fileset dir="libs-unavailable/runtime" />
+  			<!-- This mapper strips off all leading directory information -->
+			<mapper type="flatten" />
+		</copy>
+		 <mkdir dir="target" />
+		 <artifact:writepom pomRefId="runtimePom" file="target/runtimepom.xml"/>
+		 <artifact:mvn pom="target/runtimepom.xml">
+		 
+		   <arg value="dependency:tree"/>
+		 </artifact:mvn>
+	</target>
+</project>
