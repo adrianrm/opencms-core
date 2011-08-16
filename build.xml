@@ -127,7 +127,7 @@
        	    <classpath>
        	      <fileset dir="${opencms.input.libs.compile}">
        	        <include name="**/*.jar"/>
-       	        <exclude name="**/gwt-*.jar"/>
+       	        <exclude name="**/gwt-dev-*.jar"/>
        	      </fileset>
      	      <fileset dir="${opencms.input.libs.runtime}">
      	        <include name="**/*.jar"/>
