@@ -69,12 +69,13 @@
 			<pathelement location="${opencms.input.libs.runtime}/jug-lgpl-2.0.0.jar" />
 		</classpath>
 	</taskdef>
+	
+	<import file="build-dependencies.xml"/>
 
 	<!-- 
 	  -	Checks if all required libraries are available
 	  -->
-    <target name="init" >
-    	<!-- this is a comment -->
+    <target name="init" >    	
     	
         <condition property="tomcat.home" value="${env.TOMCAT_HOME}">
             <available file="${env.TOMCAT_HOME}" type="dir"/>
@@ -96,7 +97,7 @@
         <echo message="Java version detected: ${ant.java.version}"/>
         <echo message="Java target version: ${java.target.version}"/>
         <echo message="Java home is: ${env.JAVA_HOME}"/>
-    	<echo message="Tomcat home is: ${tomcat.home}" />        
+    	<echo message="Tomcat home is: ${tomcat.home}" />
     </target>
 
     <target name="clean" description="Delete existing output directories">
@@ -127,7 +128,7 @@
        	    <classpath>
        	      <fileset dir="${opencms.input.libs.compile}">
        	        <include name="**/*.jar"/>
-       	        <exclude name="**/gwt-*.jar"/>
+       	        <exclude name="**/gwt-dev-*.jar"/>
        	      </fileset>
      	      <fileset dir="${opencms.input.libs.runtime}">
      	        <include name="**/*.jar"/>
