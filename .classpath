@@ -89,5 +89,6 @@
 	<classpathentry kind="lib" path="lib/compile/gwt-dev-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/compile/gwt-servlet-deps-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/compile/gwt-user-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/gwt-servlet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
