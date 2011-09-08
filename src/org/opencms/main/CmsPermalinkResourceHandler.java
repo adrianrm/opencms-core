@@ -67,7 +67,7 @@ public class CmsPermalinkResourceHandler implements I_CmsResourceInit {
      * @see org.opencms.main.I_CmsResourceInit#initResource(org.opencms.file.CmsResource, org.opencms.file.CmsObject, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
     public CmsResource initResource(CmsResource resource, CmsObject cms, HttpServletRequest req, HttpServletResponse res)
-    throws CmsResourceInitException {
+    throws CmsResourceInitException,CmsSecurityException {
 
         // only do something if the resource was not found 
         if (resource == null) {
@@ -90,6 +90,9 @@ public class CmsPermalinkResourceHandler implements I_CmsResourceInit {
                     // read the resource
                     resource = cms.readDefaultFile(id);
                 } catch (Throwable e) {
+                    if(e instanceof CmsSecurityException){
+                        throw (CmsSecurityException)e;
+                    }
                     CmsMessageContainer msg = Messages.get().container(Messages.ERR_PERMALINK_1, id);
                     if (LOG.isErrorEnabled()) {
                         LOG.error(msg, e);
